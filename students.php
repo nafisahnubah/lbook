@@ -1,5 +1,5 @@
 <?php
-print_r($_POST);
+//print_r($_POST);
 // die();
 
 include('includes/header_css.php');
@@ -9,23 +9,6 @@ loggedin();
 
 $name=$phone=$email=$status=$active=$inactive=$suspended=$sid='';
 
-if(!isset($_POST['usid']) && $_POST['usid']=''){
-	$name = $_POST['name']; //Set UserName
-	$phone = $_POST['phone']; //Set Password
-	$email = $_POST['email'];
-	$status = $_POST['status'];
-
-	if(isset($name, $phone, $email, $status)) {
-
-	    $sql="INSERT INTO students (name, phonenumber, email, status) VALUES ('$name', '$phone', '$email', '$status')";
-	    $result=mysqli_query($conn, $sql);
-
-	    ob_end_flush();
-	}
-	else {
-	    header("location:students.php?msg=Please enter all fields in correct format");
-	}
-}
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM students WHERE id=$sid";
@@ -47,6 +30,19 @@ if(isset($_GET['eid'])){
 		}
 	}
 }
+
+if((isset($_POST['add'])) && (isset($_POST['name']))){
+	$name = $_POST['name']; //Set UserName
+	$phone = $_POST['phone']; //Set Password
+	$email = $_POST['email'];
+	$status = $_POST['status'];
+
+	if(isset($name, $phone, $email, $status)) {
+
+	    $sql="INSERT INTO students (name, phonenumber, email, status) VALUES ('$name', '$phone', '$email', '$status')";
+	    $result=mysqli_query($conn, $sql);
+	}
+}
 if((isset($_POST['usid'])) && (isset($_POST['name']))){
 	$usid = $_POST['usid'];
 	$name = $_POST['name']; //Set UserName
@@ -57,6 +53,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 	$sql="UPDATE students SET name='$name', email='$email', phonenumber='$phone', status='$status' WHERE id='$usid'";
 	$result=mysqli_query($conn, $sql);
 	header("location:student_list.php");
+
 }
 ?>
 
@@ -459,7 +456,16 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 									<input <?= $suspended?> type="radio" id="inlineCheckbox3" name="status" value="2"> Suspended
 								</label>
 							  </div>
-							  <input type="hidden" name="usid" value="<?= $sid?>">
+							  <?php
+
+							  if($sid != NULL){
+							  	echo '<input type="hidden" name="usid" value="'.$sid.'">';
+							  }else{
+							  	echo '<input type="hidden" name="add" value="1">';
+							  }
+
+							  ?>
+							  
 							</div>
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">Submit</button>
