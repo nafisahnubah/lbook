@@ -32,6 +32,7 @@ if(isset($_GET['eid'])){
 }
 
 if((isset($_POST['add'])) && (isset($_POST['name']))){
+	
 	$name = $_POST['name']; //Set UserName
 	$phone = $_POST['phone']; //Set Password
 	$email = $_POST['email'];
