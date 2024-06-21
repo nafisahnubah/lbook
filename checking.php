@@ -1,7 +1,7 @@
 <?php
 //define(DOC_ROOT,dirname(_FILE_)); // To properly get the config.php file
-$username = $_POST['user_name']; //Set UserName
-$password = md5($_POST['user_pass']); //Set Password
+$username = $_POST['email']; //Set UserName
+$password = md5($_POST['password']); //Set Password
 
 $msg ='';
 if(isset($username, $password)) {
@@ -12,10 +12,10 @@ if(isset($username, $password)) {
     // To protect MySQL injection (more detail about MySQL injection)
     $myusername = stripslashes($username);
     $mypassword = stripslashes($password);
-    $myusername = mysqli_real_escape_string($dbC, $myusername);
-    $mypassword = mysqli_real_escape_string($dbC, $mypassword);
-    $sql="SELECT * FROM login_admin WHERE user_name='$myusername' and user_pass='$mypassword'";
-    $result=mysqli_query($dbC, $sql);
+    $myusername = mysqli_real_escape_string($conn, $myusername);
+    $mypassword = mysqli_real_escape_string($conn, $mypassword);
+    $sql="SELECT * FROM user WHERE email='$myusername' and password='$mypassword'";
+    $result=mysqli_query($conn, $sql);
     // Mysql_num_row is counting table row
     $count=mysqli_num_rows($result);
 	//echo $count;
