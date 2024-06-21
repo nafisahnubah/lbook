@@ -56,7 +56,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 
 	$sql="UPDATE students SET name='$name', email='$email', phonenumber='$phone', status='$status' WHERE id='$usid'";
 	$result=mysqli_query($conn, $sql);
-	header("location:student_list.php");
+	header("location:studentlist.php");
 }
 ?>
 
@@ -463,7 +463,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 							</div>
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">Submit</button>
-							 </div>
+							</div>
 						  </fieldset>
 						</form>   
 
