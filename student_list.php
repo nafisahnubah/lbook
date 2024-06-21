@@ -1,3 +1,21 @@
+<?php
+//print_r($_POST);
+//die();
+include('config.php');
+include('includes/functions.php');
+loggedin();
+
+$msg = '';
+
+if(isset($_POST['del_id'])){
+	$sql = "DELETE FROM students WHERE id = '".$_POST['del_id']."'";
+	if($conn->query($sql) === TRUE){
+		$msg =  "<h3><span style=\"color:red;\">Record ID : <em>".$_POST['del_id']."</em> DELETED successfully</span></h3>";
+	}else {
+		echo "Error updating record: " . $conn->error;
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +35,6 @@
 	<!-- start: CSS -->
 	<?php
 	include('includes/header_css.php');
-	include('config.php');
-	include('includes/functions.php');
-	loggedin();
 	?>
 	<!-- end: CSS -->
 	
@@ -354,11 +369,11 @@
 				</li>
 				<li><a href="#">Tables</a></li>
 			</ul>
-
+			<?=$msg?>
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon user"></i><span class="break"></span>Members</h2>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>Students</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -410,9 +425,13 @@
 											<a class="btn btn-info" href="students.php?eid='.$row["id"].'">
 												<i class="halflings-icon white edit"></i>  
 											</a>
-											<a class="btn btn-danger" href="#">
-												<i class="halflings-icon white trash"></i> 
-											</a>
+
+											<form action="" method="POST" style="display:inline" onSubmit="return remove_price('.$row["id"].');" >
+												<input type="hidden" name="del_id" value="'.$row["id"].'"/>
+												<button class="btn btn-danger" type="submit" name="submit">
+													<i class="halflings-icon white trash"></i> 
+												</button>
+											</form>
 										</td>
 									</tr>
 							    ';
