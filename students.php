@@ -1,3 +1,65 @@
+<?php
+print_r($_POST);
+// die();
+
+include('includes/header_css.php');
+include('config.php');
+include('includes/functions.php');
+loggedin();
+
+$name=$phone=$email=$status=$active=$inactive=$suspended=$sid='';
+
+if(!isset($_POST['usid']) && $_POST['usid']=''){
+	$name = $_POST['name']; //Set UserName
+	$phone = $_POST['phone']; //Set Password
+	$email = $_POST['email'];
+	$status = $_POST['status'];
+
+	if(isset($name, $phone, $email, $status)) {
+
+	    $sql="INSERT INTO students (name, phonenumber, email, status) VALUES ('$name', '$phone', '$email', '$status')";
+	    $result=mysqli_query($conn, $sql);
+
+	    ob_end_flush();
+	}
+	else {
+	    header("location:students.php?msg=Please enter all fields in correct format");
+	}
+}
+if(isset($_GET['eid'])){
+	$sid=$_GET['eid'];
+	$sql="SELECT * FROM students WHERE id=$sid";
+	$result=mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)){
+			$name = $row["name"];
+			$email = $row["email"];
+			$phone = $row["phonenumber"];
+			if($row["status"]==1){
+		  		$inactive='checked';
+		  	}
+		  	else if($row["status"]==2){
+		  		$suspended ='checked';
+		  	}
+		  	else{
+		  		$active ='checked';
+		  	}
+		}
+	}
+}
+if((isset($_POST['usid'])) && (isset($_POST['name']))){
+	$usid = $_POST['usid'];
+	$name = $_POST['name']; //Set UserName
+	$phone = $_POST['phone']; //Set Password
+	$email = $_POST['email'];
+	$status = $_POST['status'];
+
+	$sql="UPDATE students SET name='$name', email='$email', phonenumber='$phone', status='$status' WHERE id='$usid'";
+	$result=mysqli_query($conn, $sql);
+	header("location:student_list.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -361,20 +423,47 @@
 						<h2><i class="halflings-icon edit"></i><span class="break"></span>Form Elements</h2>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal">
+						<form class="form-horizontal" method="post">
 						  <fieldset>
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Name </label>
 							  <div class="controls">
-								<input type="text" class="span6 typeahead">
+								<input value="<?= $name?>" type="text" name="name" class="span6 typeahead">
 							  </div>
 							</div>
+
 							<div class="control-group">
-							  <label class="control-label" for="date01">Date input</label>
+							  <label class="control-label" for="typeahead">Phone </label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="date01" value="02/16/12">
+								<input value="<?= $phone?>" type="text" name="phone" class="span6 typeahead">
 							  </div>
 							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Email </label>
+							  <div class="controls">
+								<input value="<?= $email?>" type="text" name="email" class="span6 typeahead">
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Status </label>
+							  <div class="controls">
+								<label class="checkbox inline">
+									<input <?= $active?> type="radio" id="inlineCheckbox1" name="status" value="0"> Active
+								</label>
+								<label class="checkbox inline">
+									<input <?= $inactive?> type="radio" id="inlineCheckbox2" name="status" value="1"> Inactive
+								</label>
+								<label class="checkbox inline">
+									<input <?= $suspended?> type="radio" id="inlineCheckbox3" name="status" value="2"> Suspended
+								</label>
+							  </div>
+							  <input type="hidden" name="usid" value="<?= $sid?>">
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							 </div>
 						  </fieldset>
 						</form>   
 
