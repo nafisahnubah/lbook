@@ -1,8 +1,8 @@
 <?php
 print_r($_POST);
-// die();
+//die();
 
-include('includes/header_css.php');
+//include('includes/header_css.php');
 include('config.php');
 include('includes/functions.php');
 loggedin();
@@ -26,6 +26,7 @@ if(!isset($_POST['usid']) && $_POST['usid']=''){
 	    header("location:students.php?msg=Please enter all fields in correct format");
 	}
 }
+
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM students WHERE id=$sid";
@@ -47,6 +48,8 @@ if(isset($_GET['eid'])){
 		}
 	}
 }
+
+
 if((isset($_POST['usid'])) && (isset($_POST['name']))){
 	$usid = $_POST['usid'];
 	$name = $_POST['name']; //Set UserName
@@ -56,7 +59,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 
 	$sql="UPDATE students SET name='$name', email='$email', phonenumber='$phone', status='$status' WHERE id='$usid'";
 	$result=mysqli_query($conn, $sql);
-	header("location:studentlist.php");
+	header("location:student_list.php");
 }
 ?>
 
