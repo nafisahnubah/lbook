@@ -354,7 +354,9 @@
 				<li><a href="#">Dashboard</a></li>
 			</ul>
 
-			
+			<?php
+			include('includes/deshbord.php');
+			?>
 			
        
 
