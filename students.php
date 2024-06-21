@@ -466,7 +466,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 							</div>
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">Submit</button>
-							</div>
+							 </div>
 						  </fieldset>
 						</form>   
 
