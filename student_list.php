@@ -12,7 +12,7 @@ if(isset($_POST['del_id'])){
 	if($conn->query($sql) === TRUE){
 		$msg =  "<h3><span style=\"color:red;\">Record ID : <em>".$_POST['del_id']."</em> DELETED successfully</span></h3>";
 	}else {
-		echo "Error updating record: " . $conn->error;
+		$msg =   "Error updating record: " . $conn->error;
 	}
 }
 ?>
