@@ -84,10 +84,10 @@
 		</div><!--/fluid-row-->
 	
 	<!-- start: JavaScript-->
-
 	<?php
 	include('includes/footer_js.php')
-	?>	
+	?>
+	<!-- end: JavaScript-->
 	
 </body>
 </html>
