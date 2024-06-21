@@ -426,7 +426,7 @@ if(isset($_POST['del_id'])){
 												<i class="halflings-icon white edit"></i>  
 											</a>
 
-											<form action="" method="POST" style="display:inline" onSubmit="return remove_price('.$row["id"].');" >
+											<form action="" method="POST" style="display:inline" onSubmit="return remove_std('.$row["id"].');" >
 												<input type="hidden" name="del_id" value="'.$row["id"].'"/>
 												<button class="btn btn-danger" type="submit" name="submit">
 													<i class="halflings-icon white trash"></i> 
@@ -486,6 +486,16 @@ if(isset($_POST['del_id'])){
 	include('includes/footer_js.php')
 	?>
 	<!-- end: JavaScript-->
+	<script>
+	
+	remove_std = function(id)
+	 {
+		if(confirm("Do you really want to delete this ID # "+id+" ?"))
+			return true;
+		else
+			return false;
+	 };  
+	</script>	
 	
 </body>
 </html>
