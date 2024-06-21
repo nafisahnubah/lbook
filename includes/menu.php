@@ -8,7 +8,7 @@
 				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet"> Students</span></a>
 				<ul>
 					<li><a class="submenu" href="students.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Students</span></a></li>
-					<li><a class="submenu" href="students-list.php"><i class="icon-list"></i><span class="hidden-tablet"> Students List</span></a></li>
+					<li><a class="submenu" href="student_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Students List</span></a></li>
 				</ul>	
 			</li>
 		</ul>

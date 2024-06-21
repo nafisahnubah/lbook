@@ -52,4 +52,3 @@
 		<script src="assets/js/retina.js"></script>
 
 		<script src="assets/js/custom.js"></script>
-	<!-- end: JavaScript-->
