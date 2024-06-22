@@ -446,7 +446,7 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Student ID </label>
 							  <div class="controls">
-								  <select id="selectStudentId" data-rel="chosen">
+								  <select id="studentid" name="studentid" data-rel="chosen">
 								  	<?php
 								  	$sql="SELECT * FROM students ORDER BY id ASC";
 								  	$result=mysqli_query($conn, $sql);
@@ -460,13 +460,13 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 									}
 								  	?>
 								  </select>
-								</div>
+							  </div>
 							</div>
 
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Book ID </label>
 							  <div class="controls">
-								  <select id="selectBookId" data-rel="chosen">
+								  <select id="bookid" name="bookid" data-rel="chosen">
 									<?php
 								  	$sql="SELECT * FROM books ORDER BY id ASC";
 								  	$result=mysqli_query($conn, $sql);
@@ -480,21 +480,21 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 									}
 								  	?>
 								  </select>
-								</div>
+							  </div>
 							</div>
 
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Date Borrowed </label>
-							  <div class="controls">
-								<input value="<?= $borrowdate?>" type="text" name="borrowdate" class="span6 typeahead">
-							  </div>
+								  <div class="controls">
+									<input type="text" class="input-xlarge datepicker" id="date01" name="borrowdate" value="<?= $borrowdate?>">
+								  </div>
 							</div>
 
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Date Due </label>
-							  <div class="controls">
-								<input value="<?= $duedate?>" type="text" name="duedate" class="span6 typeahead">
-							  </div>
+								  <div class="controls">
+									<input type="text" class="input-xlarge datepicker" id="date02" name="duedate" value="<?= $duedate?>">
+								  </div>
 							</div>
 
 							<div class="control-group">
