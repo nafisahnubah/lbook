@@ -8,7 +8,7 @@ loggedin();
 $msg = '';
 
 if(isset($_POST['del_id'])){
-	$sql = "DELETE FROM books WHERE id = '".$_POST['del_id']."'";
+	$sql = "DELETE FROM borrowbooks WHERE id = '".$_POST['del_id']."'";
 	if($conn->query($sql) === TRUE){
 		$msg =  "<h3><span style=\"color:red;\">Record ID : <em>".$_POST['del_id']."</em> DELETED successfully</span></h3>";
 	}else {
@@ -22,7 +22,7 @@ if(isset($_POST['del_id'])){
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap LBooks Dashboard by Dennis Ji for ARM demo</title>
+	<title>Bootstrap LBooks Dashboard by Me for ARM demo</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -373,7 +373,7 @@ if(isset($_POST['del_id'])){
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon user"></i><span class="break"></span>books</h2>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>borrow_books</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -385,40 +385,42 @@ if(isset($_POST['del_id'])){
 						  <thead>
 							  <tr>
 								  <th>ID</th>
-								  <th>Name</th>
-								  <th>Author</th>
-								  <th>Genre</th>
+								  <th>Student ID</th>
+								  <th>Book ID</th>
+								  <th>Date Borrowed</th>
+								  <th>Date Due</th>
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
 						  	<?php
-						  	$sql="SELECT * FROM books ORDER BY activity DESC";
+						  	$sql="SELECT * FROM borrowbooks ORDER BY activity DESC";
 						  	$result=mysqli_query($conn, $sql);
 
 						  	if (mysqli_num_rows($result) > 0) {
 							  // output data of each row
 							  while($row = mysqli_fetch_assoc($result)) {
 							  	if($row["status"]==1){
-							  		$status='Unavailable';
+							  		$status='Borrowed';
 							  		$cls='danger';
 							  	}
 							  	else{
-							  		$status='Available';
+							  		$status='Returned';
 							  		$cls='success';
 							  	}
 							    echo '
 							    	<tr>
 										<td>'. $row["id"].'</td>
-										<td class="center">'. $row["name"].'</td>
-										<td class="center">'. $row["author"].'</td>
-										<td class="center">'. $row["genre"].'</td>
+										<td class="center">'. $row["studentid"].'</td>
+										<td class="center">'. $row["bookid"].'</td>
+										<td class="center">'. $row["borrowdate"].'</td>
+										<td class="center">'. $row["duedate"].'</td>
 										<td class="center">
 											<span class="label label-'.$cls.'">'. $status.'</span>
 										</td>
 										<td class="center">
-											<a class="btn btn-info" href="books.php?eid='.$row["id"].'">
+											<a class="btn btn-info" href="borrow_books.php?eid='.$row["id"].'">
 												<i class="halflings-icon white edit"></i>  
 											</a>
 

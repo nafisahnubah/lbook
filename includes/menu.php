@@ -17,6 +17,13 @@
 					<li><a class="submenu" href="books_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Books List</span></a></li>
 				</ul>	
 			</li>
+			<li>
+				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet"> Borrow Books</span></a>
+				<ul>
+					<li><a class="submenu" href="borrow_books.php"><i class="icon-user"></i><span class="hidden-tablet"> Borrow Request</span></a></li>
+					<li><a class="submenu" href="borrow_books_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Borrow List</span></a></li>
+				</ul>	
+			</li>
 		</ul>
 	</div>
 </div>

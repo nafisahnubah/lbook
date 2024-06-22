@@ -1,28 +1,90 @@
 <?php
-//print_r($_POST);
+
+print_r($_POST);
 //die();
+
 include('config.php');
 include('includes/functions.php');
 loggedin();
 
-$msg = '';
+$studentid=$bookid=$borrowdate=$duedate=$status=$active=$inactive=$suspended=$sid='';
 
-if(isset($_POST['del_id'])){
-	$sql = "DELETE FROM books WHERE id = '".$_POST['del_id']."'";
-	if($conn->query($sql) === TRUE){
-		$msg =  "<h3><span style=\"color:red;\">Record ID : <em>".$_POST['del_id']."</em> DELETED successfully</span></h3>";
-	}else {
-		$msg =  "Error updating record: " . $conn->error;
+if(!isset($_POST['usid']) && $_POST['usid']=''){
+	$studentid = $_POST['studentid']; //Set UserName
+	$bookid = $_POST['bookid']; //Set Password
+	$borrowdate = $_POST['borrowdate'];
+	$duedate = $_POST['duedate'];
+	$status = $_POST['status'];
+
+	if(isset($studentid, $bookid, $borrowdate, $duedate, $status)) {
+
+	    $sql="INSERT INTO borrowbooks (studentid, bookid, borrowdate, duedate, status) VALUES ('$studentid', '$bookid', '$borrowdate', '$duedate', '$status')";
+	    $result=mysqli_query($conn, $sql);
+
+	    ob_end_flush();
+	}
+	else {
+	    header("location:borrow_books.php?msg=Please enter all fields in correct format");
 	}
 }
+
+
+if(isset($_GET['eid'])){
+	$sid=$_GET['eid'];
+	$sql="SELECT * FROM borrowbooks WHERE id=$sid";
+	$result=mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)){
+			$studentid = $row["studentid"];
+			$borrowdate = $row["borrowdate"];
+			$duedate = $row["duedate"];
+			$bookid = $row["bookid"];
+			if($row["status"]==1){
+		  		$suspended ='checked';
+		  	}
+		  	else{
+		  		$active ='checked';
+		  	}
+		}
+	}
+}
+
+if((isset($_POST['add'])) && (isset($_POST['studentid']))){
+	
+	$studentid = $_POST['studentid']; //Set UserName
+	$bookid = $_POST['bookid']; //Set Password
+	$borrowdate = $_POST['borrowdate'];
+	$duedate = $_POST['duedate'];
+	$status = $_POST['status'];
+
+	if(isset($studentid, $bookid, $borrowdate, $duedate, $status)) {
+
+	    $sql="INSERT INTO borrowbooks (studentid, bookid, borrowdate, duedate, status) VALUES ('$studentid', '$bookid', '$borrowdate', '$duedate', '$status')";
+	    $result=mysqli_query($conn, $sql);
+	}
+}
+
+if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
+	$usid = $_POST['usid'];
+	$studentid = $_POST['studentid']; //Set UserName
+	$bookid = $_POST['bookid']; //Set Password
+	$borrowdate = $_POST['borrowdate'];
+	$duedate = $_POST['duedate'];
+	$status = $_POST['status'];
+
+	$sql="UPDATE borrowbooks SET studentid='$studentid', borrowdate='$borrowdate', duedate='$duedate', bookid='$bookid', status='$status' WHERE id='$usid'";
+	$result=mysqli_query($conn, $sql);
+	header("location:borrow_books_list.php");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap LBooks Dashboard by Dennis Ji for ARM demo</title>
+	<title>Bootstrap LBooks Dashboard</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -50,7 +112,7 @@ if(isset($_POST['del_id'])){
 	<![endif]-->
 		
 	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="assets/img/favicon.ico">
 	<!-- end: Favicon -->
 	
 		
@@ -294,7 +356,7 @@ if(isset($_POST['del_id'])){
                                 </li>
                                 <li>
                                     <a href="#">
-										<span class="avatar"><img src="img/avatar5.jpg" alt="Avatar"></span>
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
 										<span class="header">
 											<span class="from">
 										    	Dennis Ji
@@ -364,87 +426,81 @@ if(isset($_POST['del_id'])){
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
-					<i class="icon-angle-right"></i>
+					<a href="index.html">Home</a>
+					<i class="icon-angle-right"></i> 
 				</li>
-				<li><a href="#">Tables</a></li>
+				<li>
+					<i class="icon-edit"></i>
+					<a href="#">Forms</a>
+				</li>
 			</ul>
-			<?=$msg?>
-			<div class="row-fluid sortable">		
+			
+			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon user"></i><span class="break"></span>books</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
-						</div>
+						<h2><i class="halflings-icon edit"></i><span class="break"></span>Form Elements</h2>
 					</div>
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
-							  <tr>
-								  <th>ID</th>
-								  <th>Name</th>
-								  <th>Author</th>
-								  <th>Genre</th>
-								  <th>Status</th>
-								  <th>Actions</th>
-							  </tr>
-						  </thead>   
-						  <tbody>
-						  	<?php
-						  	$sql="SELECT * FROM books ORDER BY activity DESC";
-						  	$result=mysqli_query($conn, $sql);
+						<form class="form-horizontal" method="post">
+						  <fieldset>
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Student ID </label>
+							  <div class="controls">
+								<input value="<?= $studentid?>" type="text" name="studentid" class="span6 typeahead">
+							  </div>
+							</div>
 
-						  	if (mysqli_num_rows($result) > 0) {
-							  // output data of each row
-							  while($row = mysqli_fetch_assoc($result)) {
-							  	if($row["status"]==1){
-							  		$status='Unavailable';
-							  		$cls='danger';
-							  	}
-							  	else{
-							  		$status='Available';
-							  		$cls='success';
-							  	}
-							    echo '
-							    	<tr>
-										<td>'. $row["id"].'</td>
-										<td class="center">'. $row["name"].'</td>
-										<td class="center">'. $row["author"].'</td>
-										<td class="center">'. $row["genre"].'</td>
-										<td class="center">
-											<span class="label label-'.$cls.'">'. $status.'</span>
-										</td>
-										<td class="center">
-											<a class="btn btn-info" href="books.php?eid='.$row["id"].'">
-												<i class="halflings-icon white edit"></i>  
-											</a>
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Book ID </label>
+							  <div class="controls">
+								<input value="<?= $bookid?>" type="text" name="bookid" class="span6 typeahead">
+							  </div>
+							</div>
 
-											<form action="" method="POST" style="display:inline" onSubmit="return remove_std('.$row["id"].');" >
-											
-												<input type="hidden" name="del_id" value="'.$row["id"].'"/>
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Date Borrowed </label>
+							  <div class="controls">
+								<input value="<?= $borrowdate?>" type="text" name="borrowdate" class="span6 typeahead">
+							  </div>
+							</div>
 
-												<button class="btn btn-danger" type="submit" name="submit">
-													<i class="halflings-icon white trash"></i> 
-												</button>
-											</form>
-										</td>
-									</tr>
-							    ';
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Date Due </label>
+							  <div class="controls">
+								<input value="<?= $duedate?>" type="text" name="duedate" class="span6 typeahead">
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Status </label>
+							  <div class="controls">
+								<label class="checkbox inline">
+									<input <?= $inactive?> type="radio" id="inlineCheckbox2" name="status" value="1"> Borrowed
+								</label>
+								<label class="checkbox inline">
+									<input <?= $active?> type="radio" id="inlineCheckbox1" name="status" value="0"> Returned
+								</label>
+							  </div>
+							  <?php
+
+							  if($sid != NULL){
+							  	echo '<input type="hidden" name="usid" value="'.$sid.'">';
+							  }else{
+							  	echo '<input type="hidden" name="add" value="1">';
 							  }
-							} else {
-							  echo "0 results";
-							}
-						  	// print_r($result);
-						  	?>
-							
-						  </tbody>
-					  </table>            
+
+							  ?>
+							  
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">Request</button>
+							 </div>
+						  </fieldset>
+						</form>   
+
 					</div>
 				</div><!--/span-->
-			
+
 			</div><!--/row-->
     
 
@@ -484,16 +540,6 @@ if(isset($_POST['del_id'])){
 	include('includes/footer_js.php')
 	?>
 	<!-- end: JavaScript-->
-	<script>
-	
-	remove_std = function(id)
-	 {
-		if(confirm("Do you really want to delete this ID # "+id+" ?"))
-			return true;
-		else
-			return false;
-	 };  
-	</script>	
 	
 </body>
 </html>

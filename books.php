@@ -36,7 +36,7 @@ if(isset($_GET['eid'])){
 			$name = $row["name"];
 			$genre = $row["genre"];
 			$author = $row["author"];
-			if($row["status"]==2){
+			if($row["status"]==1){
 		  		$unavailable ='checked';
 		  	}
 		  	else{
@@ -466,7 +466,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 									<input <?= $available?> type="radio" id="inlineCheckbox1" name="status" value="0"> Available
 								</label>
 								<label class="checkbox inline">
-									<input <?= $unavailable?> type="radio" id="inlineCheckbox3" name="status" value="2"> Unavailable
+									<input <?= $unavailable?> type="radio" id="inlineCheckbox3" name="status" value="1"> Unavailable
 								</label>
 							  </div>
 							  <?php
