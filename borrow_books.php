@@ -9,26 +9,6 @@ loggedin();
 
 $studentid=$bookid=$borrowdate=$duedate=$status=$returned=$borrowed=$suspended=$sid='';
 
-if(!isset($_POST['usid']) && $_POST['usid']=''){
-	$studentid = $_POST['studentid']; //Set UserName
-	$bookid = $_POST['bookid']; //Set Password
-	$borrowdate = $_POST['borrowdate'];
-	$duedate = $_POST['duedate'];
-	$status = $_POST['status'];
-
-	if(isset($studentid, $bookid, $borrowdate, $duedate, $status)) {
-
-	    $sql="INSERT INTO borrowbooks (studentid, bookid, borrowdate, duedate, status) VALUES ('$studentid', '$bookid', '$borrowdate', '$duedate', '$status')";
-	    $result=mysqli_query($conn, $sql);
-
-	    ob_end_flush();
-	}
-	else {
-	    header("location:borrow_books.php?msg=Please enter all fields in correct format");
-	}
-}
-
-
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM borrowbooks WHERE id=$sid";

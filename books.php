@@ -9,24 +9,6 @@ loggedin();
 
 $name=$author=$genre=$status=$available=$unavailable=$sid='';
 
-if(!isset($_POST['usid']) && $_POST['usid']=''){
-	$name = $_POST['name']; //Set UserName
-	$author = $_POST['author']; //Set Password
-	$genre = $_POST['genre'];
-	$status = $_POST['status'];
-
-	if(isset($name, $author, $genre, $status)) {
-
-	    $sql="INSERT INTO books (name, author, genre, status) VALUES ('$name', '$author', '$genre', '$status')";
-	    $result=mysqli_query($conn, $sql);
-
-	    ob_end_flush();
-	}
-	else {
-	    header("location:books.php?msg=Please enter all fields in correct format");
-	}
-}
-
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM books WHERE id=$sid";

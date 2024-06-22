@@ -9,25 +9,6 @@ loggedin();
 
 $name=$phone=$email=$status=$active=$inactive=$suspended=$sid='';
 
-if(!isset($_POST['usid']) && $_POST['usid']=''){
-	$name = $_POST['name']; //Set UserName
-	$phone = $_POST['phone']; //Set Password
-	$email = $_POST['email'];
-	$status = $_POST['status'];
-
-	if(isset($name, $phone, $email, $status)) {
-
-	    $sql="INSERT INTO students (name, phonenumber, email, status) VALUES ('$name', '$phone', '$email', '$status')";
-	    $result=mysqli_query($conn, $sql);
-
-	    ob_end_flush();
-	}
-	else {
-	    header("location:students.php?msg=Please enter all fields in correct format");
-	}
-}
-
-
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM students WHERE id=$sid";
