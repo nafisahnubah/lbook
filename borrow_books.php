@@ -7,7 +7,7 @@ include('config.php');
 include('includes/functions.php');
 loggedin();
 
-$studentid=$bookid=$borrowdate=$duedate=$status=$active=$inactive=$suspended=$sid='';
+$studentid=$bookid=$borrowdate=$duedate=$status=$returned=$borrowed=$suspended=$sid='';
 
 if(!isset($_POST['usid']) && $_POST['usid']=''){
 	$studentid = $_POST['studentid']; //Set UserName
@@ -40,10 +40,10 @@ if(isset($_GET['eid'])){
 			$duedate = $row["duedate"];
 			$bookid = $row["bookid"];
 			if($row["status"]==1){
-		  		$suspended ='checked';
+		  		$borrowed ='checked';
 		  	}
 		  	else{
-		  		$active ='checked';
+		  		$returned ='checked';
 		  	}
 		}
 	}
@@ -501,10 +501,10 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 							  <label class="control-label" for="typeahead">Status </label>
 							  <div class="controls">
 								<label class="checkbox inline">
-									<input <?= $inactive?> type="radio" id="inlineCheckbox2" name="status" value="1"> Borrowed
+									<input <?= $borrowed?> type="radio" id="inlineCheckbox2" name="status" value="1"> Borrowed
 								</label>
 								<label class="checkbox inline">
-									<input <?= $active?> type="radio" id="inlineCheckbox1" name="status" value="0"> Returned
+									<input <?= $returned?> type="radio" id="inlineCheckbox1" name="status" value="0"> Returned
 								</label>
 							  </div>
 							  <?php
