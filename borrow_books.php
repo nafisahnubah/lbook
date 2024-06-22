@@ -455,7 +455,7 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 									  while($row = mysqli_fetch_assoc($result)){
 									  	$id = $row['id'];
 								        $name = $row['name'];
-								        echo '<option value="' . $id . '">' . $name . ' -' . $id . '</option>';
+								        echo '<option value="' . $id . '">' . $name . ' - ' . $id . '</option>';
 									  }
 									}
 								  	?>
@@ -475,7 +475,7 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 									  while($row = mysqli_fetch_assoc($result)){
 									  	$id = $row['id'];
 								        $name = $row['name'];
-								        echo '<option value="' . $id . '">' . $name . ' -' . $id . '</option>';
+								        echo '<option value="' . $id . '">' . $name . ' - ' . $id . '</option>';
 									  }
 									}
 								  	?>
