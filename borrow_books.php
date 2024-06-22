@@ -446,15 +446,34 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Student ID </label>
 							  <div class="controls">
-								<input value="<?= $studentid?>" type="text" name="studentid" class="span6 typeahead">
-							  </div>
+								  <select id="selectStudentId" data-rel="chosen">
+								  	<?php
+								  	$sql="SELECT * FROM students ORDER BY id ASC";
+								  	$result=mysqli_query($conn, $sql);
+
+								  	if (mysqli_num_rows($result) > 0) {
+									  while($row = mysqli_fetch_assoc($result)){
+									  	$id = $row['id'];
+								        $name = $row['name'];
+								        echo '<option value="' . $id . '">' . $name . ' (' . $id . ')</option>';
+									  }
+									}
+								  	?>
+								  </select>
+								</div>
 							</div>
 
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Book ID </label>
 							  <div class="controls">
-								<input value="<?= $bookid?>" type="text" name="bookid" class="span6 typeahead">
-							  </div>
+								  <select id="selectBookId" data-rel="chosen">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+									<option>Option 4</option>
+									<option>Option 5</option>
+								  </select>
+								</div>
 							</div>
 
 							<div class="control-group">
