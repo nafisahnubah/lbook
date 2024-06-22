@@ -1,31 +1,51 @@
 			<div class="row-fluid">
 				
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
-					<div class="number">854<i class="icon-arrow-up"></i></div>
-					<div class="title">visits</div>
+					<?php
+					$action = "SELECT id FROM students WHERE status = 0";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Students</div>
 					<div class="footer">
-						<a href="#">Active Students</a>
+						<a href="#">Active</a>
 					</div>	
 				</div>
 				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-					<div class="number">123<i class="icon-arrow-up"></i></div>
-					<div class="title">sales</div>
+					<?php
+					$action = "SELECT id FROM students WHERE status = 1";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Students</div>
 					<div class="footer">
-						<a href="#"> Inactive Students</a>
+						<a href="#">Inactive</a>
 					</div>
 				</div>
 				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
-					<div class="number">982<i class="icon-arrow-up"></i></div>
-					<div class="title">orders</div>
+					<?php
+					$action = "SELECT id FROM students WHERE status = 2";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Students</div>
 					<div class="footer">
-						<a href="#"> Suspended Students</a>
+						<a href="#">Suspended</a>
 					</div>
 				</div>
 				<div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
-					<div class="number">678<i class="icon-arrow-down"></i></div>
-					<div class="title">visits</div>
+					<?php
+					$action = "SELECT id FROM students";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Students</div>
 					<div class="footer">
-						<a href="#"> Total Students</a>
+						<a href="#">Total</a>
 					</div>
 				</div>	
 				
@@ -33,38 +53,56 @@
 
 			<div class="row-fluid">
 				
-				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
-					<div class="number">854<i class="icon-arrow-up"></i></div>
-					<div class="title">visits</div>
+				<div class="span3 statbox red" onTablet="span6" onDesktop="span3">
+					<?php
+					$action = "SELECT id FROM books WHERE status = 2";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Books</div>
 					<div class="footer">
-						<a href="#">Total Books</a>
+						<a href="#">Ordered</a>
 					</div>	
 				</div>
-				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-					<div class="number">123<i class="icon-arrow-up"></i></div>
-					<div class="title">sales</div>
+				<div class="span3 statbox pink" onTablet="span6" onDesktop="span3">
+					<?php
+					$action = "SELECT id FROM books WHERE status = 0";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Books</div>
 					<div class="footer">
-						<a href="#"> Inactive Students</a>
+						<a href="#">Available</a>
 					</div>
 				</div>
-				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
-					<div class="number">982<i class="icon-arrow-up"></i></div>
-					<div class="title">orders</div>
+				<div class="span3 statbox blue orange" onTablet="span6" onDesktop="span3">
+					<?php
+					$action = "SELECT id FROM books WHERE status = 2";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Books</div>
 					<div class="footer">
-						<a href="#"> Suspended Students</a>
+						<a href="#">Unavailable</a>
 					</div>
 				</div>
-				<div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
-					<div class="number">678<i class="icon-arrow-down"></i></div>
-					<div class="title">visits</div>
+				<div class="span3 statbox greenDark" onTablet="span6" onDesktop="span3">
+					<?php
+					$action = "SELECT id FROM books";
+					$result=mysqli_query($conn, $action);
+					$count=mysqli_num_rows($result);
+					?>
+					<div class="number"><?=$count?></div>
+					<div class="title">Books</div>
 					<div class="footer">
-						<a href="#"> Total Students</a>
+						<a href="#">Total</a>
 					</div>
 				</div>	
 				
-			</div>		
-
-			
+			</div>
 			
 			<div class="row-fluid hideInIE8 circleStats">
 				
