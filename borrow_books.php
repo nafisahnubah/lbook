@@ -13,6 +13,7 @@ if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM borrowbooks WHERE id=$sid";
 	$result=mysqli_query($conn, $sql);
+	
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)){
 			$studentid = $row["studentid"];
@@ -57,6 +58,16 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 
 	$sql="UPDATE borrowbooks SET studentid='$studentid', borrowdate='$borrowdate', duedate='$duedate', bookid='$bookid', status='$status' WHERE id='$usid'";
 	$result=mysqli_query($conn, $sql);
+
+	if($status=='0'){
+		$sql2="UPDATE books SET status='0' WHERE id='$bookid'";
+	    $result2=mysqli_query($conn, $sql2);
+	}
+	else if($status=='1'){
+		$sql2="UPDATE books SET status='1' WHERE id='$bookid'";
+	    $result2=mysqli_query($conn, $sql2);
+	}
+
 	header("location:borrow_books_list.php");
 }
 ?>
@@ -451,7 +462,7 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 							  <div class="controls">
 								  <select id="bookid" name="bookid" data-rel="chosen">
 									<?php
-								  	$sql="SELECT * FROM books WHERE status=0 ORDER BY id ASC";
+								  	$sql="SELECT * FROM books ORDER BY id ASC";
 								  	$result=mysqli_query($conn, $sql);
 
 								  	if (mysqli_num_rows($result) > 0) {
