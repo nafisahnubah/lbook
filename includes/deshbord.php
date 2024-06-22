@@ -106,127 +106,126 @@
 			
 			<div class="row-fluid hideInIE8 circleStats">
 				
-				<div class="span2" onTablet="span4" onDesktop="span2">
+				<div class="span3" onTablet="span6" onDesktop="span3">
                 	<div class="circleStatsItemBox yellow">
-						<div class="header">Disk Space Usage</div>
+                		<?php
+						$action = "SELECT * FROM students WHERE status=0";
+						$result=mysqli_query($conn, $action);
+						$count=mysqli_num_rows($result);
+
+						$action2 = "SELECT * FROM students";
+						$result2=mysqli_query($conn, $action2);
+						$count2=mysqli_num_rows($result2);
+
+						$total = bcdiv($count, $count2, 2)*100;
+						?>
+						<div class="header">Active Students</div>
 						<span class="percent">percent</span>
 						<div class="circleStat">
-                    		<input type="text" value="58" class="whiteCircle" />
+                    		<input type="text" value="<?=$total?>" class="whiteCircle" />
 						</div>		
 						<div class="footer">
 							<span class="count">
-								<span class="number">20000</span>
-								<span class="unit">MB</span>
+								<span class="number"><?=$count?></span>
+								<span class="unit">Students</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number">50000</span>
-								<span class="unit">MB</span>
+								<span class="number"><?=$count2?></span>
+								<span class="unit">Students</span>
 							</span>	
 						</div>
                 	</div>
 				</div>
 
-				<div class="span2" onTablet="span4" onDesktop="span2">
-                	<div class="circleStatsItemBox green">
-						<div class="header">Bandwidth</div>
+				<div class="span3 noMargin" onTablet="span6" onDesktop="span3">
+                	<div class="circleStatsItemBox pink">
+						<?php
+						$action = "SELECT * FROM borrowbooks WHERE status=1";
+						$result=mysqli_query($conn, $action);
+						$count=mysqli_num_rows($result);
+
+						$action2 = "SELECT * FROM borrowbooks";
+						$result2=mysqli_query($conn, $action2);
+						$count2=mysqli_num_rows($result2);
+
+						$total = bcdiv($count, $count2, 2)*100;
+						?>
+						<div class="header">Borrowed Books</div>
 						<span class="percent">percent</span>
 						<div class="circleStat">
-                    		<input type="text" value="78" class="whiteCircle" />
-						</div>
+                    		<input type="text" value="<?=$total?>" class="whiteCircle" />
+						</div>		
 						<div class="footer">
 							<span class="count">
-								<span class="number">5000</span>
-								<span class="unit">GB</span>
+								<span class="number"><?=$count?></span>
+								<span class="unit">Books</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number">5000</span>
-								<span class="unit">GB</span>
+								<span class="number"><?=$count2?></span>
+								<span class="unit">Books</span>
 							</span>	
 						</div>
                 	</div>
 				</div>
 
-				<div class="span2" onTablet="span4" onDesktop="span2">
-                	<div class="circleStatsItemBox greenDark">
-						<div class="header">Memory</div>
-						<span class="percent">percent</span>
-                    	<div class="circleStat">
-                    		<input type="text" value="100" class="whiteCircle" />
-						</div>
-						<div class="footer">
-							<span class="count">
-								<span class="number">64</span>
-								<span class="unit">GB</span>
-							</span>
-							<span class="sep"> / </span>
-							<span class="value">
-								<span class="number">64</span>
-								<span class="unit">GB</span>
-							</span>	
-						</div>
-                	</div>
-				</div>
-
-				<div class="span2 noMargin" onTablet="span4" onDesktop="span2">
-                	<div class="circleStatsItemBox pink">
-						<div class="header">CPU</div>
-						<span class="percent">percent</span>
-                    	<div class="circleStat">
-                    		<input type="text" value="83" class="whiteCircle" />
-						</div>
-						<div class="footer">
-							<span class="count">
-								<span class="number">64</span>
-								<span class="unit">GHz</span>
-							</span>
-							<span class="sep"> / </span>
-							<span class="value">
-								<span class="number">3.2</span>
-								<span class="unit">GHz</span>
-							</span>	
-						</div>
-                	</div>
-				</div>
-
-				<div class="span2" onTablet="span4" onDesktop="span2">
+				<div class="span3" onTablet="span6" onDesktop="span3">
                 	<div class="circleStatsItemBox orange">
-						<div class="header">Memory</div>
+						<?php
+						$action = "SELECT * FROM books WHERE status=0";
+						$result=mysqli_query($conn, $action);
+						$count=mysqli_num_rows($result);
+
+						$action2 = "SELECT * FROM books";
+						$result2=mysqli_query($conn, $action2);
+						$count2=mysqli_num_rows($result2);
+
+						$total = bcdiv($count, $count2, 2)*100;
+						?>
+						<div class="header">Available Books</div>
 						<span class="percent">percent</span>
-                    	<div class="circleStat">
-                    		<input type="text" value="100" class="whiteCircle" />
-						</div>
+						<div class="circleStat">
+                    		<input type="text" value="<?=$total?>" class="whiteCircle" />
+						</div>		
 						<div class="footer">
 							<span class="count">
-								<span class="number">64</span>
-								<span class="unit">GB</span>
+								<span class="number"><?=$count?></span>
+								<span class="unit">Books</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number">64</span>
-								<span class="unit">GB</span>
+								<span class="number"><?=$count2?></span>
+								<span class="unit">Books</span>
 							</span>	
-						</div>
-                	</div>
+						</div>                	</div>
 				</div>
 
-				<div class="span2" onTablet="span4" onDesktop="span2">
+				<div class="span3" onTablet="span6" onDesktop="span3">
                 	<div class="circleStatsItemBox greenLight">
-						<div class="header">Memory</div>
+                		<?php
+						$action = "SELECT * FROM borrowbooks";
+						$result=mysqli_query($conn, $action);
+						$count=mysqli_num_rows($result);
+
+						$goal=100;
+
+						$total=$count*100/$goal;
+						?>
+						<div class="header">Lending Goal</div>
 						<span class="percent">percent</span>
                     	<div class="circleStat">
-                    		<input type="text" value="100" class="whiteCircle" />
+                    		<input type="text" value="<?=$total?>" class="whiteCircle" />
 						</div>
 						<div class="footer">
 							<span class="count">
-								<span class="number">64</span>
-								<span class="unit">GB</span>
+								<span class="number"><?=$count?></span>
+								<span class="unit">Books</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number">64</span>
-								<span class="unit">GB</span>
+								<span class="number"><?=$goal?></span>
+								<span class="unit">Books</span>
 							</span>	
 						</div>
                 	</div>

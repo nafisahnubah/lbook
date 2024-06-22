@@ -448,7 +448,7 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 							  <div class="controls">
 								  <select id="bookid" name="bookid" data-rel="chosen">
 									<?php
-								  	$sql="SELECT * FROM books ORDER BY id ASC";
+								  	$sql="SELECT * FROM books WHERE status=0 ORDER BY id ASC";
 								  	$result=mysqli_query($conn, $sql);
 
 								  	if (mysqli_num_rows($result) > 0) {
