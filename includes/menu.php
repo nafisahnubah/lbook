@@ -4,6 +4,13 @@
 			<li><a href="index.php"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
 			<!-- <li><a href=".html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li> -->
 			<li>
+				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet">Employees</span></a>
+				<ul>
+					<li><a class="submenu" href="employees.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Employee</span></a></li>
+					<li><a class="submenu" href="employee_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Employee List</span></a></li>
+				</ul>	
+			</li>
+			<li>
 				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet"> Students</span></a>
 				<ul>
 					<li><a class="submenu" href="students.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Students</span></a></li>
@@ -22,7 +29,7 @@
 				<ul>
 					<li><a class="submenu" href="borrow_books.php"><i class="icon-user"></i><span class="hidden-tablet"> Borrow Request</span></a></li>
 					<li><a class="submenu" href="borrow_books_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Borrow List</span></a></li>
-				</ul>	
+				</ul>
 			</li>
 		</ul>
 	</div>
