@@ -41,6 +41,9 @@ if((isset($_POST['add'])) && (isset($_POST['studentid']))){
 
 	    $sql="INSERT INTO borrowbooks (studentid, bookid, borrowdate, duedate, status) VALUES ('$studentid', '$bookid', '$borrowdate', '$duedate', '$status')";
 	    $result=mysqli_query($conn, $sql);
+
+	    $sql2="UPDATE books SET status='1' WHERE id='$bookid'";
+	    $result2=mysqli_query($conn, $sql2);
 	}
 }
 
