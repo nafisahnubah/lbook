@@ -17,6 +17,7 @@
 	<?php
 	include('includes/header_css.php');
 	include('includes/functions.php');
+	include('config.php');
 	loggedin();
 	?>
 	
