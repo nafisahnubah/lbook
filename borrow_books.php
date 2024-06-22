@@ -467,11 +467,18 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 							  <label class="control-label" for="typeahead">Book ID </label>
 							  <div class="controls">
 								  <select id="selectBookId" data-rel="chosen">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-									<option>Option 4</option>
-									<option>Option 5</option>
+									<?php
+								  	$sql="SELECT * FROM books ORDER BY id ASC";
+								  	$result=mysqli_query($conn, $sql);
+
+								  	if (mysqli_num_rows($result) > 0) {
+									  while($row = mysqli_fetch_assoc($result)){
+									  	$id = $row['id'];
+								        $name = $row['name'];
+								        echo '<option value="' . $id . '">' . $name . ' (' . $id . ')</option>';
+									  }
+									}
+								  	?>
 								  </select>
 								</div>
 							</div>
