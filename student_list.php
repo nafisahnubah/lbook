@@ -19,7 +19,7 @@ if(isset($_POST['del_id'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
+
 	<!-- start: Meta -->
 	<meta charset="utf-8">
 	<title>Bootstrap LBooks Dashboard by Me for ARM demo</title>
@@ -370,9 +370,17 @@ if(isset($_POST['del_id'])){
 				<li><a href="#">Tables</a></li>
 			</ul>
 			<?=$msg?>
-			<div class="row-fluid sortable">		
+			<div class="row-fluid sortable">
 				<div class="box span12">
-					<div class="box-header" data-original-title>
+					
+		        <form class="form-search" method="get" action="search_results.php" style="width: 200px; display: inline-block;">
+		            <div class="input-append">
+		                <input type="text" class="input-medium search-query" name="query" placeholder="Search students..." autocomplete="off" style="width: 160px;">
+		                <button type="submit" class="btn"><i class="halflings-icon search"></i></button>
+		            </div>
+		        </form>					
+
+        			<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>Students</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
