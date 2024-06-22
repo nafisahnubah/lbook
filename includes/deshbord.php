@@ -55,7 +55,7 @@
 				
 				<div class="span3 statbox red" onTablet="span6" onDesktop="span3">
 					<?php
-					$action = "SELECT id FROM books WHERE status = 2";
+					$action = "SELECT id FROM borrowbooks";
 					$result=mysqli_query($conn, $action);
 					$count=mysqli_num_rows($result);
 					?>
