@@ -1,6 +1,6 @@
 <?php
 
-print_r($_POST);
+// print_r($_POST);
 //die();
 
 include('config.php');
@@ -26,7 +26,6 @@ if(!isset($_POST['usid']) && $_POST['usid']=''){
 	    header("location:books.php?msg=Please enter all fields in correct format");
 	}
 }
-
 
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
