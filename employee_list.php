@@ -92,12 +92,12 @@ if(isset($_POST['del_id'])){
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					
-		        <form class="form-search" method="get" action="search_results.php" style="width: 200px; display: inline-block;">
+		        <!-- <form class="form-search" method="get" action="search_results.php" style="width: 200px; display: inline-block;">
 		            <div class="input-append">
 		                <input type="text" class="input-medium search-query" name="query" placeholder="Search employees..." autocomplete="off" style="width: 160px;">
 		                <button type="submit" class="btn"><i class="halflings-icon search"></i></button>
 		            </div>
-		        </form>					
+		        </form>	 -->				
 
         			<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>Employees</h2>
