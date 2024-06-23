@@ -1,6 +1,5 @@
 <?php
-//print_r($_POST);
-//die();
+
 include('config.php');
 include('includes/functions.php');
 loggedin();
@@ -156,7 +155,6 @@ if(isset($_POST['del_id'])){
 							} else {
 							  echo "0 results";
 							}
-						  	// print_r($result);
 						  	?>
 							
 						  </tbody>
