@@ -2,26 +2,27 @@
 	include('includes/footer_js.php');
 	include ('config.php');
 	include('includes/header_css.php');
-	$email=$_POST['email'];
-	$password=md5($_POST['password']);
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		$email=$_POST['email'];
+		$password=md5($_POST['password']);
+		if(isset($email, $password)) {
+		    ob_start();
+			session_start();
 
-	if(isset($email, $password)) {
-	    ob_start();
-		session_start();
+		    $myemail = stripslashes($email);
+		    $mypassword = stripslashes($password);
+		    $myemail = mysqli_real_escape_string($conn, $myemail);
+		    $mypassword = mysqli_real_escape_string($conn, $mypassword);
 
-	    $myemail = stripslashes($email);
-	    $mypassword = stripslashes($password);
-	    $myemail = mysqli_real_escape_string($conn, $myemail);
-	    $mypassword = mysqli_real_escape_string($conn, $mypassword);
+			$_SESSION["admin"]= $myemail;
+		    $_SESSION["password"]= $mypassword;
 
-		$_SESSION["admin"]= $myemail;
-	    $_SESSION["password"]= $mypassword;
-
-		$sql="INSERT INTO user (email, password, status) VALUES ('$email', '$password', '0')";
-		$result=mysqli_query($conn, $sql);
-		header("location:employees.php");
-	    	
-	    ob_end_flush();
+			$sql="INSERT INTO user (email, password, status) VALUES ('$email', '$password', '0')";
+			$result=mysqli_query($conn, $sql);
+			header("location:employees.php");
+		    	
+		    ob_end_flush();
+		}
 	}
 	?>
 <!DOCTYPE html>
