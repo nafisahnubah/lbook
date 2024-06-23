@@ -107,7 +107,7 @@
 			<div class="row-fluid hideInIE8 circleStats">
 				
 				<div class="span3" onTablet="span6" onDesktop="span3">
-                	<div class="circleStatsItemBox yellow">
+                	<div class="circleStatsItemBox purple">
                 		<?php
 						$action = "SELECT * FROM students WHERE status=0";
 						$result=mysqli_query($conn, $action);
@@ -139,7 +139,7 @@
 				</div>
 
 				<div class="span3 noMargin" onTablet="span6" onDesktop="span3">
-                	<div class="circleStatsItemBox pink">
+                	<div class="circleStatsItemBox green">
 						<?php
 						$action = "SELECT * FROM borrowbooks WHERE status=1";
 						$result=mysqli_query($conn, $action);
@@ -171,7 +171,7 @@
 				</div>
 
 				<div class="span3" onTablet="span6" onDesktop="span3">
-                	<div class="circleStatsItemBox orange">
+                	<div class="circleStatsItemBox blue">
 						<?php
 						$action = "SELECT * FROM books WHERE status=0";
 						$result=mysqli_query($conn, $action);
@@ -198,11 +198,12 @@
 								<span class="number"><?=$count2?></span>
 								<span class="unit">Books</span>
 							</span>	
-						</div>                	</div>
+						</div>                	
+					</div>
 				</div>
 
 				<div class="span3" onTablet="span6" onDesktop="span3">
-                	<div class="circleStatsItemBox greenLight">
+                	<div class="circleStatsItemBox yellow">
                 		<?php
 						$action = "SELECT * FROM borrowbooks";
 						$result=mysqli_query($conn, $action);
@@ -232,7 +233,7 @@
 				</div>			
 			</div>		
 			
-			
+
 			<div class="row-fluid">	
 
 				<a class="quick-button metro yellow span2">
