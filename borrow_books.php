@@ -78,10 +78,9 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap LBooks Dashboard</title>
-	<meta name="description" content="Bootstrap Metro Dashboard">
-	<meta name="author" content="Dennis Ji">
-	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<title>Borrow Request</title>
+	<meta name="description" content="LBook Borrow Request">
+	<meta name="keyword" content="LBook, Library, Borrow, Bootstrap, Books">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->
@@ -145,7 +144,7 @@ if((isset($_POST['usid'])) && (isset($_POST['studentid']))){
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Forms</a>
+					<a href="#">Borrow Request</a>
 				</li>
 			</ul>
 			

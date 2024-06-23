@@ -4,9 +4,8 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>LBook Dashboard</title>
+	<title>Dashboard</title>
 	<meta name="description" content="LBook Dashboard">
-	<!-- <meta name="author" content=""> -->
 	<meta name="keyword" content="LBook, Library, Dashboard, Bootstrap, Admin">
 	<!-- end: Meta -->
 	

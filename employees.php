@@ -90,10 +90,9 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap LBooks Dashboard</title>
-	<meta name="description" content="Bootstrap Metro Dashboard">
-	<meta name="author" content="Dennis Ji">
-	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<title>Add Employee</title>
+	<meta name="description" content="LBook Add Employee">
+	<meta name="keyword" content="LBook, Library, Employees, Bootstrap">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->
@@ -157,7 +156,7 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Forms</a>
+					<a href="#">Add Employee</a>
 				</li>
 			</ul>
 			

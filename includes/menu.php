@@ -7,20 +7,20 @@
 				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet">Employees</span></a>
 				<ul>
 					<li><a class="submenu" href="employees.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Employee</span></a></li>
-					<li><a class="submenu" href="employee_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Employee List</span></a></li>
+					<li><a class="submenu" href="employee_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Employees List</span></a></li>
 				</ul>	
 			</li>
 			<li>
 				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet"> Students</span></a>
 				<ul>
-					<li><a class="submenu" href="students.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Students</span></a></li>
+					<li><a class="submenu" href="students.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Student</span></a></li>
 					<li><a class="submenu" href="student_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Students List</span></a></li>
 				</ul>	
 			</li>
 			<li>
 				<a class="dropmenu" href="#"><i class="icon-glass"></i><span class="hidden-tablet"> Books</span></a>
 				<ul>
-					<li><a class="submenu" href="books.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Books</span></a></li>
+					<li><a class="submenu" href="books.php"><i class="icon-user"></i><span class="hidden-tablet"> Add Book</span></a></li>
 					<li><a class="submenu" href="books_list.php"><i class="icon-list"></i><span class="hidden-tablet"> Books List</span></a></li>
 				</ul>	
 			</li>

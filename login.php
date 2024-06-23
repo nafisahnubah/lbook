@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Lbook Login</title>
+	<title>Login</title>
 	<meta name="description" content="LBook Login">
 	<!-- <meta name="author" content="Dennis Ji"> -->
 	<meta name="keyword" content="LBook, Library, Dashboard, Bootstrap, Login">

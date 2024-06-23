@@ -22,10 +22,9 @@ if(isset($_POST['del_id'])){
 
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap LBooks Dashboard by Me for ARM demo</title>
-	<meta name="description" content="Bootstrap Metro Dashboard">
-	<meta name="author" content="Dennis Ji">
-	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<title>Students List</title>
+	<meta name="description" content="LBook Students List">
+	<meta name="keyword" content="LBook, Library, Students, Bootstrap, Lists">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->
@@ -87,7 +86,7 @@ if(isset($_POST['del_id'])){
 					<a href="index.php">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="#">Tables</a></li>
+				<li><a href="#">Students List</a></li>
 			</ul>
 			<?=$msg?>
 			<div class="row-fluid sortable">
