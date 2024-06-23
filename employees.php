@@ -467,25 +467,25 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 							  <label class="control-label" for="checkbox">Day </label>
 							  <div class="controls">
 								<label class="checkbox inline">
-									<input <?= $sun?> type="radio" id="inlineCheckbox1" name="days" value="0"> Sunday
+									<input <?= $sun?> type="chekcbox" id="inlineCheckbox1" name="days[]" value="0"> Sunday
 								</label>
 								<label class="checkbox inline">
-									<input <?= $mon?> type="radio" id="inlineCheckbox2" name="days" value="1"> Monday
+									<input <?= $mon?> type="chekcbox" id="inlineCheckbox2" name="days[]" value="1"> Monday
 								</label>
 								<label class="checkbox inline">
-									<input <?= $teu?> type="radio" id="inlineCheckbox3" name="days" value="2"> Teusday
+									<input <?= $teu?> type="chekcbox" id="inlineCheckbox3" name="days[]" value="2"> Teusday
 								</label>
 								<label class="checkbox inline">
-									<input <?= $wed?> type="radio" id="inlineCheckbox3" name="days" value="3"> Wednesday
+									<input <?= $wed?> type="chekcbox" id="inlineCheckbox4" name="days[]" value="3"> Wednesday
 								</label>
 								<label class="checkbox inline">
-									<input <?= $thu?> type="radio" id="inlineCheckbox3" name="days" value="4"> Thursday
+									<input <?= $thu?> type="chekcbox" id="inlineCheckbox5" name="days[]" value="4"> Thursday
 								</label>
 								<label class="checkbox inline">
-									<input <?= $fri?> type="radio" id="inlineCheckbox3" name="days" value="5"> Friday
+									<input <?= $fri?> type="chekcbox" id="inlineCheckbox6" name="days[]" value="5"> Friday
 								</label>
 								<label class="checkbox inline">
-									<input <?= $sat?> type="radio" id="inlineCheckbox3" name="days" value="6"> Saturday
+									<input <?= $sat?> type="chekcbox" id="inlineCheckbox7" name="days[]" value="6"> Saturday
 								</label>
 							  </div>
 							  <?php
