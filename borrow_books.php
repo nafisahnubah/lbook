@@ -13,7 +13,7 @@ if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
 	$sql="SELECT * FROM borrowbooks WHERE id=$sid";
 	$result=mysqli_query($conn, $sql);
-	
+
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)){
 			$studentid = $row["studentid"];
@@ -45,6 +45,12 @@ if((isset($_POST['add'])) && (isset($_POST['studentid']))){
 
 	    $sql2="UPDATE books SET status='1' WHERE id='$bookid'";
 	    $result2=mysqli_query($conn, $sql2);
+
+	    // $sql3="SELECT students.name FROM students RIGHT JOIN borrowbooks ON students.id='$studentid'";
+	    // $result3=mysqli_query($conn, $sql3);
+
+	    // $sql4="SELECT books.name FROM books RIGHT JOIN borrowbooks ON books.id='$bookid'";
+	    // $result4=mysqli_query($conn, $sql4);
 	}
 }
 
