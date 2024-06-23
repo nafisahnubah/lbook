@@ -126,12 +126,12 @@
 						</div>		
 						<div class="footer">
 							<span class="count">
-								<span class="number"><?=$count?></span>
+								<span class="text"><?=$count?></span>
 								<span class="unit">Students</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number"><?=$count2?></span>
+								<span class="text"><?=$count2?></span>
 								<span class="unit">Students</span>
 							</span>	
 						</div>
@@ -145,7 +145,7 @@
 						$result=mysqli_query($conn, $action);
 						$count=mysqli_num_rows($result);
 
-						$action2 = "SELECT * FROM borrowbooks";
+						$action2 = "SELECT * FROM books";
 						$result2=mysqli_query($conn, $action2);
 						$count2=mysqli_num_rows($result2);
 
@@ -158,12 +158,12 @@
 						</div>		
 						<div class="footer">
 							<span class="count">
-								<span class="number"><?=$count?></span>
+								<span class="text"><?=$count?></span>
 								<span class="unit">Books</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number"><?=$count2?></span>
+								<span class="text"><?=$count2?></span>
 								<span class="unit">Books</span>
 							</span>	
 						</div>
@@ -190,12 +190,12 @@
 						</div>		
 						<div class="footer">
 							<span class="count">
-								<span class="number"><?=$count?></span>
+								<span class="text"><?=$count?></span>
 								<span class="unit">Books</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number"><?=$count2?></span>
+								<span class="text"><?=$count2?></span>
 								<span class="unit">Books</span>
 							</span>	
 						</div>                	
@@ -220,12 +220,12 @@
 						</div>
 						<div class="footer">
 							<span class="count">
-								<span class="number"><?=$count?></span>
+								<span class="text"><?=$count?></span>
 								<span class="unit">Books</span>
 							</span>
 							<span class="sep"> / </span>
 							<span class="value">
-								<span class="number"><?=$goal?></span>
+								<span class="text"><?=$goal?></span>
 								<span class="unit">Books</span>
 							</span>	
 						</div>
