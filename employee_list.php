@@ -115,8 +115,7 @@ if(isset($_POST['del_id'])){
 								  <th>Name</th>
 								  <th>Email</th>
 								  <th>UserID</th>
-								  <!-- <th>Days</th> -->
-								  <th>Day</th>
+								  <th>Shift</th>
 								  <th>Activity</th>
 							  </tr>
 						  </thead>   
@@ -128,34 +127,15 @@ if(isset($_POST['del_id'])){
 						  	if (mysqli_num_rows($result) > 0) {
 							  // output data of each row
 							  while($row = mysqli_fetch_assoc($result)) {
-							  	if($row["days"]==0){
-							  		$days='Sunday';
-							  		$cls='warning';
-							  	}
-							  	else if($row["days"]==1){
-							  		$days='Monday';
-							  		$cls='info';
-							  	}
-							  	else if($row["days"]==2){
-							  		$days='Teusday';
-							  		$cls='info';
-							  	}
-							  	else if($row["days"]==3){
-							  		$days='Wednesday';
-							  		$cls='info';
-							  	}
-							  	else if($row["days"]==4){
-							  		$days='Thursday';
-							  		$cls='info';
-							  	}
-							  	else if($row["days"]==5){
-							  		$days='Friday';
-							  		$cls='info';
-							  	}
-							  	else if($row["days"]==6){
-							  		$days='Saturday';
-							  		$cls='warning';
-							  	}
+									if($row["shifts"] == 0) {
+										$shiftWriting = "Night";
+									}
+									else if($row["shifts"] == 1){
+										$shiftWriting = "Morning";
+									}
+									else{
+										$shiftWriting = "Afternoon";
+									}
 							    echo '
 							    	<tr>
 										<td>'. $row["id"].'</td>
@@ -163,8 +143,9 @@ if(isset($_POST['del_id'])){
 										<td class="center">'. $row["email"].'</td>
 										<td class="center">'. $row["userid"].'</td>
 										<td class="center">
-											<span class="label label-'.$cls.'">'. $days.'</span>
+											<span>'.$shiftWriting.'</span>
 										</td>
+									  	
 										<td class="center">
 											<a class="btn btn-info" href="employees.php?eid='.$row["id"].'">
 												<i class="halflings-icon white edit"></i>  
@@ -188,7 +169,6 @@ if(isset($_POST['del_id'])){
 							} else {
 							  echo "0 results";
 							}
-						  	// print_r($result);
 						  	?>
 							
 						  </tbody>

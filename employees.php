@@ -7,7 +7,7 @@ include('config.php');
 include('includes/functions.php');
 loggedin();
 
-$name=$email=$userid=$days=$sun=$mon=$teu=$wed=$thu=$fri=$sat=$shifts=$night=$morning=$afternoon=$sid='';
+$name=$email=$userid=$sun=$mon=$teu=$wed=$thu=$fri=$sat=$shifts=$night=$morning=$afternoon=$sid='';
 
 if(isset($_GET['eid'])){
 	$sid=$_GET['eid'];
@@ -18,27 +18,6 @@ if(isset($_GET['eid'])){
 			$name = $row["name"];
 			$email = $row["email"];
 			$userid = $row["userid"];
-			if($row["days"]==0){
-		  		$sun='checked';
-		  	}
-		  	else if($row["days"]==1){
-		  		$mon ='checked';
-		  	}
-		  	else if($row["days"]==2){
-		  		$teu ='checked';
-		  	}
-		  	else if($row["days"]==3){
-		  		$wed ='checked';
-		  	}
-		  	else if($row["days"]==4){
-		  		$thu ='checked';
-		  	}
-		  	else if($row["days"]==5){
-		  		$fri ='checked';
-		  	}
-		  	else if($row["days"]==6){
-		  		$sat ='checked';
-		  	}
 		  	if($row["shifts"]==0){
 		  		$night='checked';
 		  	}
@@ -58,27 +37,25 @@ if((isset($_POST['add'])) && (isset($_POST['name']))){
 	$email = $_POST['email'];
 	$sql="SELECT * FROM user WHERE email='$email'";
 	$result=mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0){
-	    while($row = mysqli_fetch_assoc($result)){
-	    	$userid = $row["id"]; 
-    	}
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)){
+			$userid = $row["id"];
+		}
 	}
-	$days = $_POST['days'];
 	$shifts = $_POST['shifts'];
-
-	if(isset($name, $email, $userid, $days, $shifts)) {
-	    $sql="INSERT INTO employees (name, email, userid, days, shifts) VALUES ('$name', '$email', '$userid', '$days', '$shifts')";
+	if(isset($name, $email, $userid, $shifts)) {
+	    $sql="INSERT INTO employees (name, email, userid, shifts) VALUES ('$name', '$email', '$userid', '$shifts')";
 	    $result=mysqli_query($conn, $sql);
 	}
+
 }
 
 if((isset($_POST['usid'])) && (isset($_POST['name']))){
 	$name = $_POST['name'];
 	$email = $_POST['email'];
-	$days = $_POST['days'];
 	$shifts = $_POST['shifts'];
 
-	$sql="UPDATE employees SET name='$name', email='$email', userid='$userid', days='$days', shifts='$shifts' WHERE id='$usid'";
+	$sql="UPDATE employees SET name='$name', email='$email', userid='$userid', shifts='$shifts' WHERE id='$usid'";
 	$result=mysqli_query($conn, $sql);
 	header("location:student_list.php");
 }
@@ -180,42 +157,6 @@ if((isset($_POST['usid'])) && (isset($_POST['name']))){
 							  <div class="controls">
 								<input value="<?= $email?>" type="text" name="email" class="span6 typeahead">
 							  </div>
-							</div>
-
-							<div class="control-group">
-							  <label class="control-label" for="checkbox">Day </label>
-							  <div class="controls">
-								<label class="checkbox inline">
-									<input <?= $sun?> type="chekcbox" id="inlineCheckbox1" name="days[]" value="0"> Sunday
-								</label>
-								<label class="checkbox inline">
-									<input <?= $mon?> type="chekcbox" id="inlineCheckbox2" name="days[]" value="1"> Monday
-								</label>
-								<label class="checkbox inline">
-									<input <?= $teu?> type="chekcbox" id="inlineCheckbox3" name="days[]" value="2"> Teusday
-								</label>
-								<label class="checkbox inline">
-									<input <?= $wed?> type="chekcbox" id="inlineCheckbox4" name="days[]" value="3"> Wednesday
-								</label>
-								<label class="checkbox inline">
-									<input <?= $thu?> type="chekcbox" id="inlineCheckbox5" name="days[]" value="4"> Thursday
-								</label>
-								<label class="checkbox inline">
-									<input <?= $fri?> type="chekcbox" id="inlineCheckbox6" name="days[]" value="5"> Friday
-								</label>
-								<label class="checkbox inline">
-									<input <?= $sat?> type="chekcbox" id="inlineCheckbox7" name="days[]" value="6"> Saturday
-								</label>
-							  </div>
-							  <?php
-
-							  if($sid != NULL){
-							  	echo '<input type="hidden" name="usid" value="'.$sid.'">';
-							  }else{
-							  	echo '<input type="hidden" name="add" value="1">';
-							  }
-
-							  ?>
 							</div>
 
 							<div class="control-group">
