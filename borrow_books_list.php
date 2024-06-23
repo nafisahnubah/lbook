@@ -385,8 +385,8 @@ if(isset($_POST['del_id'])){
 						  <thead>
 							  <tr>
 								  <th>ID</th>
-								  <th>Student ID</th>
-								  <th>Book ID</th>
+								  <th>Student Name</th>
+								  <th>Book Name</th>
 								  <th>Date Borrowed</th>
 								  <th>Date Due</th>
 								  <th>Status</th>
@@ -395,12 +395,15 @@ if(isset($_POST['del_id'])){
 						  </thead>   
 						  <tbody>
 						  	<?php
-						  	$sql="SELECT * FROM borrowbooks ORDER BY activity DESC";
+
+							$sql="SELECT borrowbooks.id, students.name AS studentname, books.name AS bookname, borrowbooks.borrowdate, borrowbooks.duedate, borrowbooks.status FROM ((students INNER JOIN borrowbooks ON borrowbooks.studentid = students.id) INNER JOIN books ON borrowbooks.bookid = books.id)";
+
 						  	$result=mysqli_query($conn, $sql);
 
 						  	if (mysqli_num_rows($result) > 0) {
 							  // output data of each row
 							  while($row = mysqli_fetch_assoc($result)) {
+							  	
 							  	if($row["status"]==1){
 							  		$status='Borrowed';
 							  		$cls='danger';
@@ -412,8 +415,8 @@ if(isset($_POST['del_id'])){
 							    echo '
 							    	<tr>
 										<td>'. $row["id"].'</td>
-										<td class="center">'. $row["studentid"].'</td>
-										<td class="center">'. $row["bookid"].'</td>
+										<td class="center">'. $row["studentname"].'</td>
+										<td class="center">'. $row["bookname"].'</td>
 										<td class="center">'. $row["borrowdate"].'</td>
 										<td class="center">'. $row["duedate"].'</td>
 										<td class="center">
