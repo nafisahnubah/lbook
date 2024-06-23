@@ -1,3 +1,29 @@
+	<?php
+	include('includes/footer_js.php');
+	include ('config.php');
+	include('includes/header_css.php');
+	$email=$_POST['email'];
+	$password=md5($_POST['password']);
+
+	if(isset($email, $password)) {
+	    ob_start();
+		session_start();
+
+	    $myemail = stripslashes($email);
+	    $mypassword = stripslashes($password);
+	    $myemail = mysqli_real_escape_string($conn, $myemail);
+	    $mypassword = mysqli_real_escape_string($conn, $mypassword);
+
+		$_SESSION["admin"]= $myemail;
+	    $_SESSION["password"]= $mypassword;
+
+		$sql="INSERT INTO user (email, password, status) VALUES ('$email', '$password', '0')";
+		$result=mysqli_query($conn, $sql);
+		header("location:employees.php");
+	    	
+	    ob_end_flush();
+	}
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,29 +34,14 @@
 	<meta name="description" content="LBook Signup">
 	<meta name="keyword" content="LBook, Library, Dashboard, Bootstrap, Signup">
 	<!-- end: Meta -->
-	
-	<?php
-	include('includes/header_css.php');
-	?>
-	
 
-	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
-	<![endif]-->
-	
-	<!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
-	<![endif]-->
-		
 	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="assets/img/favicon.ico">
 	<!-- end: Favicon -->
 	
-			<style type="text/css">
-			body { background: url(assets/img/bg-login.jpg) !important; }
-		</style>
+	<style type="text/css">
+		body { background: url(assets/img/bg-login.jpg) !important; }
+	</style>
 		
 		
 		
@@ -43,10 +54,10 @@
 			<div class="row-fluid">
 				<div class="login-box">
 					<h2 style="padding-top:20px;">Signup to your account</h2>
-					<form class="form-horizontal" action="checking.php" method="post">
+					<form class="form-horizontal" method="post">
 						<fieldset>
 							
-							<div class="input-prepend" title="Username">
+							<div class="input-prepend" title="Email">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
 								<input class="input-large span10" name="email" id="email" type="email" required placeholder="Email"/>
 							</div>
@@ -72,9 +83,6 @@
 		</div><!--/fluid-row-->
 	
 	<!-- start: JavaScript-->
-	<?php
-	include('includes/footer_js.php')
-	?>
 	<!-- end: JavaScript-->
 	
 </body>
