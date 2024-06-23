@@ -6,7 +6,6 @@
 	<meta charset="utf-8">
 	<title>Login</title>
 	<meta name="description" content="LBook Login">
-	<!-- <meta name="author" content="Dennis Ji"> -->
 	<meta name="keyword" content="LBook, Library, Dashboard, Bootstrap, Login">
 	<!-- end: Meta -->
 	
@@ -43,11 +42,7 @@
 					
 			<div class="row-fluid">
 				<div class="login-box">
-					<div class="icons">
-						<a href="index.php"><i class="halflings-icon home"></i></a>
-						<a href="#"><i class="halflings-icon cog"></i></a>
-					</div>
-					<h2>Login to your account</h2>
+					<h2 style="padding-top:20px;">Login to your account</h2>
 					<form class="form-horizontal" action="checking.php" method="post">
 						<fieldset>
 							
