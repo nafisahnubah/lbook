@@ -17,7 +17,7 @@ input[type="tel"],
 input[type="color"],
 input[type="file"],
 .uneditable-input {
-  border-color: #eee !important;	
+  border-color: #eee !important;
   display: inline-block;
   height: 20px;
   padding: 4px 6px;
@@ -27,8 +27,8 @@ input[type="file"],
   color: #555555;
   vertical-align: middle;
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 input,
@@ -60,12 +60,12 @@ input[type="color"],
   background-color: #ffffff;
   border: 1px solid #cccccc;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-       -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-          transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
 textarea:focus,
@@ -90,8 +90,8 @@ input[type="color"]:focus,
   /* IE6-9 */
 
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 input[type="radio"],
@@ -150,8 +150,8 @@ input[type="checkbox"]:focus {
   background-color: #fcfcfc;
   border-color: #cccccc;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .uneditable-input {
@@ -191,8 +191,8 @@ textarea::-webkit-input-placeholder {
   margin-left: -20px;
 }
 
-.controls > .radio:first-child,
-.controls > .checkbox:first-child {
+.controls>.radio:first-child,
+.controls>.checkbox:first-child {
   padding-top: 5px;
 }
 
@@ -204,8 +204,8 @@ textarea::-webkit-input-placeholder {
   vertical-align: middle;
 }
 
-.radio.inline + .radio.inline,
-.checkbox.inline + .checkbox.inline {
+.radio.inline+.radio.inline,
+.checkbox.inline+.checkbox.inline {
   margin-left: 10px;
 }
 
@@ -264,7 +264,7 @@ textarea,
   margin-left: 0;
 }
 
-.controls-row [class*="span"] + [class*="span"] {
+.controls-row [class*="span"]+[class*="span"] {
   margin-left: 20px;
 }
 
@@ -401,8 +401,8 @@ input[type="checkbox"][readonly] {
 .control-group.warning textarea {
   border-color: #c09853;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.warning input:focus,
@@ -410,8 +410,8 @@ input[type="checkbox"][readonly] {
 .control-group.warning textarea:focus {
   border-color: #a47e3c;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.warning .input-prepend .add-on,
@@ -440,8 +440,8 @@ input[type="checkbox"][readonly] {
 .control-group.error textarea {
   border-color: #b94a48;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.error input:focus,
@@ -449,8 +449,8 @@ input[type="checkbox"][readonly] {
 .control-group.error textarea:focus {
   border-color: #953b39;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.error .input-prepend .add-on,
@@ -479,8 +479,8 @@ input[type="checkbox"][readonly] {
 .control-group.success textarea {
   border-color: #468847;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.success input:focus,
@@ -488,8 +488,8 @@ input[type="checkbox"][readonly] {
 .control-group.success textarea:focus {
   border-color: #356635;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
 }
 
 .control-group.success .input-prepend .add-on,
@@ -518,8 +518,8 @@ input[type="checkbox"][readonly] {
 .control-group.info textarea {
   border-color: #3a87ad;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.info input:focus,
@@ -527,8 +527,8 @@ input[type="checkbox"][readonly] {
 .control-group.info textarea:focus {
   border-color: #2d6987;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .control-group.info .input-prepend .add-on,
@@ -550,8 +550,8 @@ textarea:focus:invalid:focus,
 select:focus:invalid:focus {
   border-color: #e9322d;
   -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .form-actions {
@@ -625,8 +625,8 @@ select:focus:invalid:focus {
   *margin-left: 0;
   vertical-align: top;
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-append input:focus,
@@ -658,12 +658,12 @@ select:focus:invalid:focus {
 .input-prepend .add-on,
 .input-append .btn,
 .input-prepend .btn,
-.input-append .btn-group > .dropdown-toggle,
-.input-prepend .btn-group > .dropdown-toggle {
+.input-append .btn-group>.dropdown-toggle,
+.input-prepend .btn-group>.dropdown-toggle {
   vertical-align: top;
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-append .active,
@@ -680,24 +680,24 @@ select:focus:invalid:focus {
 .input-prepend .add-on:first-child,
 .input-prepend .btn:first-child {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-append input,
 .input-append select,
 .input-append .uneditable-input {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
-.input-append input + .btn-group .btn:last-child,
-.input-append select + .btn-group .btn:last-child,
-.input-append .uneditable-input + .btn-group .btn:last-child {
+.input-append input+.btn-group .btn:last-child,
+.input-append select+.btn-group .btn:last-child,
+.input-append .uneditable-input+.btn-group .btn:last-child {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-append .add-on,
@@ -708,42 +708,42 @@ select:focus:invalid:focus {
 
 .input-append .add-on:last-child,
 .input-append .btn:last-child,
-.input-append .btn-group:last-child > .dropdown-toggle {
+.input-append .btn-group:last-child>.dropdown-toggle {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-prepend.input-append input,
 .input-prepend.input-append select,
 .input-prepend.input-append .uneditable-input {
   -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
-.input-prepend.input-append input + .btn-group .btn,
-.input-prepend.input-append select + .btn-group .btn,
-.input-prepend.input-append .uneditable-input + .btn-group .btn {
+.input-prepend.input-append input+.btn-group .btn,
+.input-prepend.input-append select+.btn-group .btn,
+.input-prepend.input-append .uneditable-input+.btn-group .btn {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-prepend.input-append .add-on:first-child,
 .input-prepend.input-append .btn:first-child {
   margin-right: -1px;
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-prepend.input-append .add-on:last-child,
 .input-prepend.input-append .btn:last-child {
   margin-left: -1px;
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .input-prepend.input-append .btn-group:first-child {
@@ -759,8 +759,8 @@ input.search-query {
 
   margin-bottom: 0;
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 /* Allow for input prepend/append in search forms */
@@ -768,32 +768,32 @@ input.search-query {
 .form-search .input-append .search-query,
 .form-search .input-prepend .search-query {
   -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
 .form-search .input-append .search-query {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .form-search .input-append .btn {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .form-search .input-prepend .search-query {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .form-search .input-prepend .btn {
   -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .form-search input,
@@ -866,7 +866,7 @@ input.search-query {
   margin-bottom: 10px;
 }
 
-legend + .control-group {
+legend+.control-group {
   margin-top: 20px;
   -webkit-margin-top-collapse: separate;
 }
@@ -909,12 +909,12 @@ legend + .control-group {
   margin-bottom: 0;
 }
 
-.form-horizontal input + .help-block,
-.form-horizontal select + .help-block,
-.form-horizontal textarea + .help-block,
-.form-horizontal .uneditable-input + .help-block,
-.form-horizontal .input-prepend + .help-block,
-.form-horizontal .input-append + .help-block {
+.form-horizontal input+.help-block,
+.form-horizontal select+.help-block,
+.form-horizontal textarea+.help-block,
+.form-horizontal .uneditable-input+.help-block,
+.form-horizontal .input-prepend+.help-block,
+.form-horizontal .input-append+.help-block {
   margin-top: 10px;
 }
 
