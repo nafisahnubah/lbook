@@ -77,14 +77,10 @@
 					</form>	
 				</div><!--/span-->
 			</div><!--/row-->
-			
-
-	</div><!--/.fluid-container-->
+		
+		</div><!--/.fluid-container-->
 	
-		</div><!--/fluid-row-->
-	
-	<!-- start: JavaScript-->
-	<!-- end: JavaScript-->
+	</div><!--/fluid-row-->
 	
 </body>
 </html>

@@ -1,5 +1,4 @@
 <?php
-//define(DOC_ROOT,dirname(_FILE_)); // To properly get the config.php file
 $username = $_POST['email']; //Set UserName
 $password = md5($_POST['password']); //Set Password
 
@@ -8,7 +7,6 @@ if(isset($username, $password)) {
     ob_start();
 	session_start();
 	include('config.php');
-    //include(DOC_ROOT.'/config.php'); //Initiate the MySQL connection
     // To protect MySQL injection (more detail about MySQL injection)
     $myusername = stripslashes($username);
     $mypassword = stripslashes($password);

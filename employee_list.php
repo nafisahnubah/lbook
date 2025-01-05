@@ -35,25 +35,10 @@ if(isset($_POST['del_id'])){
 	include('includes/header_css.php');
 	?>
 	<!-- end: CSS -->
-	
 
-	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
-	<![endif]-->
-	
-	<!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
-	<![endif]-->
-		
 	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<!-- end: Favicon -->
-	
-		
-		
-		
 </head>
 
 <body>
@@ -90,15 +75,7 @@ if(isset($_POST['del_id'])){
 			<?=$msg?>
 			<div class="row-fluid sortable">
 				<div class="box span12">
-					
-		        <!-- <form class="form-search" method="get" action="search_results.php" style="width: 200px; display: inline-block;">
-		            <div class="input-append">
-		                <input type="text" class="input-medium search-query" name="query" placeholder="Search employees..." autocomplete="off" style="width: 160px;">
-		                <button type="submit" class="btn"><i class="halflings-icon search"></i></button>
-		            </div>
-		        </form>	 -->				
-
-        			<div class="box-header" data-original-title>
+					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>Employees</h2>
 					</div>
 					<div class="box-content">
