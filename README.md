@@ -44,7 +44,7 @@ LBook is a fully functional web application designed to simplify and streamline 
 
 ## Authors
 1. - Name: Nafisah Nubah
-   - Email: Nafisah Nubah
+   - Email: nafisahnubah@gmail.com
 
 2. - Name: Muhammad Rafat Hossain
    - Email: rafat.click.hossain@gmail.com
