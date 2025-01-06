@@ -48,3 +48,6 @@ LBook is a fully functional web application designed to simplify and streamline 
 
 2. - Name: Muhammad Rafat Hossain
    - Email: rafat.click.hossain@gmail.com
+
+3. - Name: Rafiqul Hasan Rony
+   - Email: rony332392@gmail.com
